@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="create_exercise_list_in_latex" content="Documentation for creating an exercise list in latex" />
+    <title>Creating exercise list in LaTeX</title>
+    <link rel="stylesheet" href="fCC-technical-documentation-page.css" />
+  </head>
+  <body>
+      <nav id="navbar">
+        <header>How to create an exercise list in LaTeX?</header>
+        <ul>
+          <li><a  class="nav-link" href="#packages">Packages</a></li>
+          <li><a  class="nav-link" href="#numbering">Numbering</a></li>
+          <li><a  class="nav-link" href="#mathematical_formulas">Mathematical formulas</a></li>
+          <li><a class="nav-link"  href="#space_optimalization">Space optimalization</a></li>
+          <li><a class="nav-link"  href="#solutions">Solutions</a></li>
+          <li><a class="nav-link" href="#review">Review</a></li>
+        </ul>
+      </nav>
+    <main id="main-doc">
+      <section id="packages" class="main-section">
+        <header>Packages</header>
+        <p>You should use packages to get access to specific letters (e.g. in the Hungarian language) and mathematical symbols and formulas. They are are also needed for tabular, enumeration and formatting (as we will see in the <a href="#space_optimalization">Space optimalization section</a>). </p>
+        <p>I use the following packages for my exercise lists and exams created for my classes in Hungary.</p>
+        <ul>
+          <li>for language: <br><code>
+           \usepackage[utf8]{inputenc}<br>
+           \usepackage[magyar]{babel}<br>
+           \usepackage{amsfonts}<br>
+           \usepackage{t1enc}
+          </code></li>
+          <li>for numbering: <code>
+           \usepackage{enumerate}<br>
+           \usepackage{enumitem}<br>
+           \usepackage{theorem}<br>
+           \usepackage{hyperref}
+           </code></li>
+          <li>for mathematical formula: <code>
+           \usepackage{amsmath}<br>
+           \usepackage{amssymb}
+          </code></li>
+          <li>for space optimalization: <code>
+            \usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}<br>
+            \usepackage{multicol}
+          </code></li>
+          <li>for tabular: <code>
+            \usepackage{array}<br>
+            \usepackage{tabularx}
+            </code></li>
+        </ul>
+      </section>
+      <section id="numbering" class="main-section">
+        <header>Numbering</header>
+        <p>Usually there is a numbering of the exercises with arabic numbers, wich also refers to the section. I use sub-numbering for the task of the same type denoted by the letters of the alphabet.</p>
+        <p>I use the following enviroment before the beginning of the document for the numbering of the exercises with bold arabic numbers with a point after (e.g. <span style="font-weight: bold">1.2.</span>): </p>
+        <code>\theoremstyle{change}\theorembodyfont{\rm}\newtheorem{feladat}[tetel]{.}</code>
+        <p>Then an exercise can be written such that the code <code>\begin{feladat}</code> stands before the text of the exercise and the code <code>\end{feladat}</code> after it.</p>
+        <p>For the subtasks I create the following environment before the beginning of the document:</p>
+        <code>\newcommand{\abcd}[1]{\begin{enumerate}[label=\textbf{\alph*)}, nosep]#1\end{enumerate}}</code>
+        <p>Then I only have to use the code <code>\abcd{}</code> and put the subtask into the brakets with a code <code>\item</code> before each subtask. This creates bold letters with a closing bracket, e.g. <span style="font-weight: bold">a)</span>.</p>
+      </section>
+      <section id="mathematical_formulas" class="main-section">
+        <header >Mathematical formulas</header>
+        <p>LaTeX is an excellent tool to write mathematical formulas and larger text containing them, such as article or thesis. See this <a href="https://www.overleaf.com/learn/latex/Mathematical_expressions">overview about mathematical expressions</a> for a short introduction.</p>
+      </section>
+      <section id="space_optimalization" class="main-section">
+        <header>Space optimalization</header>
+        <p>When I create a list of exercises, I prefer to use as little paper as possible. Maybe this does not look nice, but I like this style.</p>
+        <p>In order to save space, I create a multi columns layout when the sub-tasks consists of short mathematical expressions. For a 3 column layout the code <code>\begin{multicols}{3}</code> is needed before the subtask enumeration and a code <code>\end{multicols}</code> after the enumeration.  
+          The number of columns depends on the size of the subtasks, I use usually 2, 3 or 4 columns. </p>
+      </section>
+      <section id="solutions" class="main-section">
+        <header >Solutions</header>
+        <p>After creating the list of exercises it is nice to create also the solutions. The students are happy about that. </p>
+        <p>I recommend to put the solutions into a separate section, so they cannot be immediately viewed when starting a task. 
+          The numbering of the solutions can be synchronized with the number of the exercises using the hyperref package. </p>
+        <p>In order to create the references, first a label must be given to the exercise. An example of the beginning of an exercise with a label is shown below.</p>
+        <code>\begin{feladat}\label{f.vlsz.2dvv.3szog}</code>
+        <p>The number of the labelled exercise in this example can be referred as <code>\ref{f.vlsz.2dvv.3szog}</code>.</p>
+      </section>
+      <section id="review" class="main-section">
+        <header>Review</header>
+        <p>After finishing the exercise list and the solutions, it is highly recommended to review your work. 
+          Creating solutions also helps you review whether the questions of tasks make any sense. It also helps you put the tasks in increasing order by difficulity. 
+          Then check the visibility of the mathematical formulas, if no index or letter is missing and everything means what you wanted to. 
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
