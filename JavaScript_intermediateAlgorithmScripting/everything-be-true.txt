@@ -1,0 +1,7 @@
+function truthCheck(collection, pre) {
+  let arr = collection.map((obj) => obj[pre]);
+//  console.log(arr.every((value) => value));
+  return arr.every((value) => value);
+}
+
+truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");

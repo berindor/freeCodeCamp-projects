@@ -1,0 +1,32 @@
+const romNum = {
+  1: ["I","X","C","M"],
+  5: ["V","L","D"]
+};
+
+function setRomanDecimal(num,powOfTen) {
+  let numTrunc = Math.floor(num / Math.pow(10, powOfTen)); //removes the last powOfTen digits of num
+  if (numTrunc % 10 === 4) { 
+    return romNum[1][powOfTen] + romNum[5][powOfTen];
+  } 
+  if (numTrunc % 10 === 9) {
+    return romNum[1][powOfTen] + romNum[1][powOfTen + 1];
+  }
+  let romanDecimal = romNum[1][powOfTen].repeat(numTrunc % 5);
+  if (numTrunc % 10 >= 5) {
+    return romNum[5][powOfTen] + romanDecimal; 
+  } else {
+    return romanDecimal;
+  }
+};
+
+function convertToRoman(num) {
+  let arr = [];
+  for (let dec = 0; dec < 3; dec++) {
+    arr.unshift(setRomanDecimal(num,dec));
+  }
+  arr.unshift("M".repeat(Math.floor(num / 1000)));
+  console.log(arr);
+  return arr.join("");
+}
+
+convertToRoman(2034);

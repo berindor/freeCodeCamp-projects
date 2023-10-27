@@ -1,0 +1,24 @@
+function whatIsInAName(collection, source) {
+  let newArr = [...collection];
+  for (let prop in source) {
+    for (let obj = newArr.length - 1; obj >= 0; obj--) {
+      if (newArr[obj][prop] !== source[prop] ) {
+        newArr.splice(obj, 1);
+      };
+    };
+  };
+  console.log(newArr);
+  return newArr;
+}
+//filter jó lett volna 
+//object.entries hasznos lett volna 
+
+/*
+let source = { last: "Capulet" };
+for (let property in source) {
+const prop = property;
+console.log(source[prop]);
+};
+*/
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });

@@ -1,0 +1,16 @@
+function smallestCommons(arr) {
+  let smaller = Math.min(...arr);
+  let larger = Math.max(...arr);
+  let common = smaller;
+  for (let k = smaller + 1; k <= larger; k++) {
+    let mult = 1;
+    while (common * mult % k !== 0) {
+      mult++;
+    }
+//    console.log(common * mult);
+    common = common * mult;
+  }
+  return common;
+}
+
+smallestCommons([10,2]);

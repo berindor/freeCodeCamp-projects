@@ -1,0 +1,16 @@
+function sumFibs(num) {
+  let smaller = 0;
+  let larger = 1;
+  let sum = 0;
+  while (larger <= num) {
+    if (larger % 2 === 1) {
+      sum = sum + larger;
+    }
+//    console.log(larger, sum);
+    larger = smaller + larger; 
+    smaller = larger - smaller; 
+  }
+  return sum;
+}
+
+sumFibs(1000);

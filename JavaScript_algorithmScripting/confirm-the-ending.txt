@@ -1,0 +1,16 @@
+function confirmEnding(str, target) {
+  let i = 0;
+  while (str[str.length - 1 - i] == target[target.length - 1 - i] 
+  && i < target.length) {
+    i++;
+  }
+//  console.log(i);
+  if (i < target.length) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+confirmEnding("Bastian", "n");
+// console.log(confirmEnding("Bastian", "astian"));

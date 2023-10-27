@@ -1,0 +1,14 @@
+function destroyer(arr) {
+  const newArr = [...arr];
+  for (let elem = arr.length - 1; elem >= 0; elem--) {
+    for (let arg = 1; arg < arguments.length; arg++) {
+      if (arr[elem] === arguments[arg]) {
+        newArr.splice(elem, 1);
+      }
+    }
+  }
+  console.log(newArr);
+  return newArr;
+}
+//filter jó lett volna 
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);

@@ -1,0 +1,16 @@
+const abc = "abcdefghijklmnopqrstuvwxyz";
+
+function fearNotLetter(str) {
+  let n = 0;
+  while (abc.match(RegExp(str.slice(0, n + 1)))) {
+    n++;
+  }
+  if (n === str.length) {
+    return undefined;
+  } else {
+    return abc[abc.match(RegExp(str.slice(0,n))).index + n];
+  }
+}
+
+fearNotLetter("abce");
+console.log(fearNotLetter("abce"));

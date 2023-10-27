@@ -1,0 +1,7 @@
+function telephoneCheck(str) {
+  const telRegex = /^(1\s{0,1}|)(\(\d{3}\)\s{0,1}|\d{3}[-\s]{0,1})\d{3}[-\s]{0,1}\d{4}$/;
+  console.log(telRegex.test(str));
+  return telRegex.test(str);
+}
+
+telephoneCheck("(545)-545-5345");

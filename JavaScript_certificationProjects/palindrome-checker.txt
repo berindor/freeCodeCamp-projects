@@ -1,0 +1,9 @@
+function palindrome(str) {
+  let filterRegex = /[A-Za-z0-9]/
+  return str.split("")
+  .filter((element) => filterRegex.test(element))
+  .map((element) => element.toLowerCase())
+  .every((element, index, array) => element === array[array.length - 1 - index])
+}
+
+console.log(palindrome("_eye"));

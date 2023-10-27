@@ -1,0 +1,14 @@
+function rot13(str) {
+  let arr = str.split("").map((letter) => 
+  /[A-Z]/.test(letter) ? 
+  letter.charCodeAt() + 13 <= "Z".charCodeAt() ? 
+    String.fromCharCode(letter.charCodeAt() + 13) : 
+    String.fromCharCode(letter.charCodeAt() + 13 - 26)
+  : letter
+  );
+//  console.log(arr.join(""));
+  return arr.join("");
+}
+
+
+rot13("SERR PBQR PNZC");

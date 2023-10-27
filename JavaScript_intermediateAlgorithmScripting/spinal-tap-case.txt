@@ -1,0 +1,32 @@
+function spaceBeforeUpperCase(str) {
+  let arr = str.split("");
+//Really need to convert to an array, because strings are unmutable??
+  for (let i = 0; i < str.length; i++) {
+    if (arr[i].toUpperCase() === arr[i]) {
+      arr = arr.slice(0,i).concat([" "]).concat(arr.slice(i,));
+//      console.log(arr);
+      i++;
+    }
+  }
+//  console.log(arr.join(""));
+  return arr.join("");
+}
+//spaceBeforeUpperCase("thisIsSpinalTap");
+
+
+function spinalCase(str) {
+  let arr = spaceBeforeUpperCase(str)
+  .toLowerCase()
+  .split(/\W+|_/);
+//  console.log(arr);
+  let newArr = [];
+  for (let i = 0; i < arr.length ; i++) {
+    if (arr[i] !== "") {
+      newArr.push(arr[i]);
+    } 
+  }
+//  console.log(newArr.join("-"));
+  return newArr.join("-");
+}
+
+spinalCase("The_Andy_Griffith_Show");

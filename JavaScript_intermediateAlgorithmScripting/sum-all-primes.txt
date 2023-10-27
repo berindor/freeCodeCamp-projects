@@ -1,0 +1,27 @@
+function isPrime(num) {
+  let prime = true;
+  let k = 2;
+  while (k * k <= num) {
+    if (num % k === 0) {
+      prime = false;
+    }
+    k++;
+  }
+//  console.log(prime);
+  return prime;
+}
+
+//isPrime(11); 
+
+function sumPrimes(num) {
+  let sum = 0;
+  for (let k = 2; k <= num; k++) {
+  if (isPrime(k)) {
+    sum = sum + k;
+  }  
+  }
+//  console.log(sum);
+  return sum;
+}
+
+sumPrimes(977);

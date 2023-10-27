@@ -1,0 +1,68 @@
+/*function setRomanOnes(num,arr) {
+  if (num % 5 < 4) {
+    for (let i = 1; i <= num % 5; i++) {
+      arr.unshift("I");
+    }
+    if (num % 10 >= 5) {
+      arr.unshift("V");
+    }
+  } else if (num % 10 === 4) {
+    arr.unshift("IV");
+  } else {
+    arr.unshift("IX");
+  }
+};
+
+function setRomanTens(num,arr) {
+  let numTrunc = (num - ( num % 10 ) ) / 10;
+  if (numTrunc % 5 < 4) {
+    for (let i = 1; i <= numTrunc % 5; i++) {
+      arr.unshift("X");
+    }
+    if (numTrunc % 10 >= 5) {
+      arr.unshift("L");
+    }
+  } else if (numTrunc % 10 === 4) {
+    arr.unshift("XL");
+  } else {
+    arr.unshift("XC");
+  }
+};
+*/
+
+const romNum = {
+  1: ["I","X","C","M"],
+  5: ["V","L","D"]
+};
+
+function setRomanDecimal(num,powOfTen) {
+  let arr = [];
+  let numTrunc = (num - ( num % Math.pow(10,powOfTen) ) ) / Math.pow(10,powOfTen);
+  if (numTrunc % 5 < 4) {
+    for (let i = 1; i <= numTrunc % 5; i++) {
+      arr.unshift(romNum[1][powOfTen]);
+    }
+    if (numTrunc % 10 >= 5) {
+      arr.unshift(romNum[5][powOfTen]);
+    }
+  } else if (numTrunc % 10 === 4) {
+    arr.unshift(romNum[1][powOfTen] + romNum[5][powOfTen]);
+  } else {
+    arr.unshift(romNum[1][powOfTen] + romNum[1][powOfTen + 1]);
+  }
+  return arr.join("");
+};
+
+function convertToRoman(num) {
+  let arr = [];
+  for (let dec = 0; dec < 3; dec++) {
+    arr.unshift(setRomanDecimal(num,dec));
+  }
+  for (let m = 1; m * 1000 <= num; m++) {
+    arr.unshift("M");
+  }
+  console.log(arr);
+  return arr.join("");
+}
+
+convertToRoman(2039);
