@@ -1,0 +1,156 @@
+:root {
+  --background-color-dark: #722631;
+  --background-color-medium: #dddddd;
+  --background-color-light: #eeeeee;
+  --color-for-dark: #aaaaaa;
+  --color-for-medium: rgba(167,77,96,1);
+  --header-height: 10vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+#header {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0 5%;
+  background-color: var(--background-color-dark);
+  color: var(--color-for-dark);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: auto;
+  margin-top: 3vh;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: var(--color-for-dark);
+  padding: auto;
+  height: 4vh;
+  width: 120px;
+  line-height: 4vh;
+  border: 2px solid;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+li a:hover {
+  background-color: var(--background-color-light);
+}
+  
+.content {
+  position: fixed;
+  overflow: scroll;
+  height: calc(100vh - var(--header-height));
+  top: var(--header-height);
+  width: 100%;
+}
+
+main a {
+  color: var(--color-for-medium);
+}
+
+section {
+  padding: 5% 10%;
+  background-color: var(--background-color-medium);
+  color: var(--color-for-medium);
+  font-size: 20px;  
+  text-align: center;
+}
+
+main h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+#welcome-section,
+#contact-section {
+  height: calc(100vh - var(--header-height));
+  padding-top: 30%;
+}
+
+#projects {
+  background: linear-gradient(
+      70deg,
+      #fcba03,
+      #fc8c03
+  );
+}
+
+.project-tile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.project {
+  height: max(400px,35vw);
+  width: max(400px,35vw);
+  background-color: rgba(138, 154, 91, 0.8);
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 5vh;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.project a {
+  display: block;
+  width: 80%;
+  height: 20%;
+  margin: 10%;
+  text-decoration: none;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+#image-cantor {
+  width: 70%;
+  height: 40%;
+}
+
+#image-latex, 
+#image-backpack,
+#image-survey-form {
+  height: 50%;
+}
+
+footer {
+  height: 50px;
+  bottom: 0;
+  background-color: var(--background-color-dark);
+  color: var(--color-for-dark);
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+footer a {
+  color: var(--color-for-dark);
+}
+
+
